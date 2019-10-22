@@ -188,15 +188,25 @@ document.getElementById('allCars').addEventListener('click', function(){
 });
 
 // Function that is called to display all cars high to low
-document.getElementById('lowHigh').addEventListener('click', function(){
+document.getElementById('highLowMileage').addEventListener('click', function(){
 	// Loops through the whole array
 	for (i = 0; i < cars.length; i++) {
 		// a function created to sort cars with the lowest mileage to highest mileage
 		cars.sort(function(a, b){
-			return parseFloat(a.mileage) - parseFloat(b.mileage);
+			// Takes the mileage from the array and lists the objects in order from least milage to most
+			return parseInt(b.mileage) - parseInt(a.mileage);
 		});
 	}
 	console.log(cars);
+});
+
+// Function that sorts from lowest priced car to highest
+document.getElementById('lowHighPrice').addEventListener('click', function(){
+	for (i = 0; i < cars.length; i++) {
+		cars.sort(function(a, b){
+			return parseInt(a.price) - parseInt(b.price);
+		});
+	}
 });
 
 // Function that is called to find cars that weigh more than 1.5tons
