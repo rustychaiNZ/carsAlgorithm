@@ -170,7 +170,8 @@ function writeCars(){
 	'<div class="card col-md-4">' +
 		'<img src="' + cars[i].picture + '" class="card-image" alt="cars">' +
 		'<div class="card-body">' + 
-			'<h4 class="card-title">' + cars[i].make + '</h4>' + '<h5 class="card-title">' + cars[i].model + '</h5>' +
+			'<h4 class="card-title">' + cars[i].make + '</h4>' + 
+			'<h5 class="card-title">' + cars[i].model + '</h5>' +
 			'<p class="card-text"> <b>Car Registraion:</b> ' + cars[i].registraion + '<br> <b>Car Weight: </b>' + cars[i].weight + 'kg<br><b>Car Mileage: </b>' + cars[i].mileage + 'km' + '<br><b>Car Year: </b>' + cars[i].year + '<br> <b>Price: </b>$' + cars[i].price +
 		'</div>';
 }
