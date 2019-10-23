@@ -2,17 +2,17 @@ console.log('Array of Cars');
 
 var cars = [
 	{
-		make : 'Ford',
+		make : 'ford',
 		model : 'Laser',
 		registraion : 'sw3712',
 		weight : 1134,
 		mileage : 150000,
 		year : 1994,
-		price : 900,
+		price : 1600,
 		picture : 'assets/fordLaser.jpg'
 	},
 	{
-		make : 'Holden',
+		make : 'holden',
 		model : 'Barina',
 		registraion : 'gkl101',
 		weight : 1256,
@@ -22,7 +22,7 @@ var cars = [
 		picture : 'assets/holdenBarina.jpg'
 	},
 	{
-		make : 'Holden',
+		make : 'holden',
 		model : 'Commodore',
 		registraion : 'sti934',
 		weight : 1662,
@@ -32,7 +32,7 @@ var cars = [
 		picture : 'assets/holdenCommodore.jpg'
 	},
 	{
-		make : 'Mazda',
+		make : 'mazda',
 		model : '3',
 		registraion : 'qie783',
 		weight : 1292,
@@ -42,7 +42,7 @@ var cars = [
 		picture : 'assets/mazda3.jpg'
 	},
 	{
-		make : 'Mazda',
+		make : 'mazda',
 		model : 'BT-50',
 		registraion : 'yt9347',
 		weight : 1876,
@@ -52,7 +52,7 @@ var cars = [
 		picture : 'assets/mazdaBT50.jpg'
 	},
 	{
-		make : 'Mazda',
+		make : 'mazda',
 		model : 'Demio',
 		registraion : 'ggo395',
 		weight : 1058,
@@ -62,7 +62,7 @@ var cars = [
 		picture : 'assets/mazdaDemio.jpg'
 	},
 	{
-		make : 'Mazda',
+		make : 'mazda',
 		model : 'RX-7 FB',
 		registraion : 'pd7456',
 		weight : 1100,
@@ -72,7 +72,7 @@ var cars = [
 		picture : 'assets/mazdaRX7.jpg'
 	},
 	{
-		make : 'Mitsubishi',
+		make : 'mitsubishi',
 		model : 'Outlander',
 		registraion : 'gyk384',
 		weight : 1745,
@@ -82,7 +82,7 @@ var cars = [
 		picture : 'assets/mitsubishiOutlander.jpg'
 	},
 	{
-		make : 'Nissan',
+		make : 'nissan',
 		model : 'Skyline GTR',
 		registraion : 'fiu847',
 		weight : 1430,
@@ -92,7 +92,7 @@ var cars = [
 		picture : 'assets/nissanGTR.jpg'
 	},
 	{
-		make : 'Nissan',
+		make : 'nissan',
 		model : 'Leaf',
 		registraion : 'oei463',
 		weight : 1493,
@@ -102,7 +102,7 @@ var cars = [
 		picture : 'assets/nissanLeaf.jpg'
 	},
 	{
-		make : 'Nissan',
+		make : 'nissan',
 		model : 'Silvia',
 		registraion : 'yu584',
 		weight : 1250,
@@ -112,7 +112,7 @@ var cars = [
 		picture : 'assets/nissanSilvia.jpg'
 	},
 	{
-		make : 'Suzuki',
+		make : 'suzuki',
 		model : 'Swift',
 		registraion : 'lks971',
 		weight : 1050,
@@ -122,7 +122,7 @@ var cars = [
 		picture : 'assets/suzukiSwift.jpg'
 	},
 	{
-		make : 'Tesla',
+		make : 'tesla',
 		model : 'Model S',
 		registraion : 'mhr18',
 		weight : 1611,
@@ -132,7 +132,7 @@ var cars = [
 		picture : 'assets/teslaModelS.jpg'
 	},
 	{
-		make : 'Toyota',
+		make : 'toyota',
 		model : 'Corolla',
 		registraion : 'pj6437',
 		weight : 1095,
@@ -142,7 +142,7 @@ var cars = [
 		picture : 'assets/toyotaCorolla.jpg'
 	},
 	{
-		make : 'Toyota',
+		make : 'toyota',
 		model : 'Hilux',
 		registraion : 'rly749',
 		weight : 1795,
@@ -166,14 +166,24 @@ function clearField(){
 
 // lists cars
 function writeCars(){
+	// Takes make of car, starting before the first letter takes the first letter, sets i to capital
+	var y = (cars[i].make).slice(0,1).toUpperCase();
 	document.getElementById('results').innerHTML += 
 	'<div class="card col-md-4">' +
 		'<img src="' + cars[i].picture + '" class="card-image" alt="cars">' +
 		'<div class="card-body">' + 
-			'<h4 class="card-title">' + cars[i].make + '</h4>' + 
+			// Takes the make of car and replaces the first letter with a capital of the same letter
+			'<h4 class="card-title">' + (cars[i].make).replace(cars[i].make[0],y) + '</h4>' + 
 			'<h5 class="card-title">' + cars[i].model + '</h5>' +
 			'<p class="card-text"> <b>Car Registraion:</b> ' + cars[i].registraion + '<br> <b>Car Weight: </b>' + cars[i].weight + 'kg<br><b>Car Mileage: </b>' + cars[i].mileage + 'km' + '<br><b>Car Year: </b>' + cars[i].year + '<br> <b>Price: </b>$' + cars[i].price +
 		'</div>';
+		console.log(cars[i].make); // from array
+
+		//convert first letter to uppercase
+		console.log(y);
+		// var x= (cars[i].make).slice(0,1);
+		console.log((cars[i].make).replace(cars[i].make[0],y));
+
 }
 
 // --- button actions
@@ -189,6 +199,7 @@ document.getElementById('allCars').addEventListener('click', function(){
 
 // Function that is called to display all cars high to low
 document.getElementById('highLowMileage').addEventListener('click', function(){
+	clear();
 	// Loops through the whole array
 	for (i = 0; i < cars.length; i++) {
 		// a function created to sort cars with the lowest mileage to highest mileage
@@ -196,16 +207,19 @@ document.getElementById('highLowMileage').addEventListener('click', function(){
 			// Takes the mileage from the array and lists the objects in order from least milage to most
 			return parseInt(b.mileage) - parseInt(a.mileage);
 		});
+		writeCars();
 	}
 	console.log(cars);
 });
 
 // Function that sorts from lowest priced car to highest
 document.getElementById('lowHighPrice').addEventListener('click', function(){
+	clear();
 	for (i = 0; i < cars.length; i++) {
 		cars.sort(function(a, b){
 			return parseInt(a.price) - parseInt(b.price);
 		});
+		writeCars();
 	}
 });
 
@@ -224,7 +238,8 @@ document.getElementById('moreThan1.5Tons').addEventListener('click', function(){
 document.getElementById('searchMakeBtn').addEventListener('click', function(){
 	clear();
 	// Stores the user's input in the 'makeSearch' variable
-	var makeSearch = document.getElementById('searchMake').value;
+	var makeSearch = (document.getElementById('searchMake').value).toLowerCase();
+	console.log(makeSearch);
 	for (i = 0; i < cars.length; i++) {
 		if(makeSearch === cars[i].make) {
 			writeCars();
@@ -243,3 +258,65 @@ document.getElementById('searchMakeBtn').addEventListener('click', function(){
 	console.log(makeSearch);
 	clearField();
 });
+
+// Function that allows the user to be able to select a price range for the cars
+document.getElementById('priceRangeDropDownBtn').addEventListener('click', function(){
+	clear();
+	// Stores the value that has been taken from the drop down selction box in the variable
+	var userPriceRange = document.getElementById('priceRangeDropDown').value;
+	for(i = 0; i < cars.length; i++) {
+		/*
+			* This statement begins by taking the input from the drop down menu that the user selects
+			* Next, it compares the price of the car to a pre determined set of paramaters
+			* Finally, once the query fits within a certain set of parameters, the corelating cars from the object array will be displayed
+		*/
+		if ((userPriceRange == 1 )  &&  (cars[i].price < 1500)){
+			writeCars();
+		} else if ((userPriceRange == 2) && (cars[i].price >= 1500) && (cars[i].price < 5000)) { // if there are cars between the range of 1500 inclusive and 5000, then display those cars
+			writeCars();
+		} else if ((userPriceRange == 3) && (cars[i].price >= 5000) && (cars[i].price < 10000)) {
+			writeCars();
+		} else if ((userPriceRange == 4) && (cars[i].price >= 10000) && (cars[i].price < 30000)) {
+			writeCars();
+		} else if ((userPriceRange == 5 )  &&  (cars[i].price >= 30000)){
+			writeCars();
+		}
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
